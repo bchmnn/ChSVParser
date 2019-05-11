@@ -4,6 +4,10 @@ import java.lang.IllegalArgumentException
 import kotlin.math.max
 import kotlin.text.StringBuilder
 
+/**
+ * @property sep        separator string of elements in row
+ * @property sep        separator string of rows
+ */
 class ChSVParser constructor(
     var sep: String = ",",
     var term: String = "\n"
