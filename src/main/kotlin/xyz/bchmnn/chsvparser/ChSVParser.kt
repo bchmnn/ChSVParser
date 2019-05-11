@@ -59,22 +59,22 @@ class ChSVParser constructor(
                     break
             }
 
-            if (!isSep && !isTerm) builder.append(text[i])
-
-            if (isSep || isTerm) {
+            if (!isSep && !isTerm) {
+                builder.append(text[i])
+                i++
+            } else {
                 row.add(builder.toString())
                 builder.clear()
+                if ((isSep && isTerm && sep.length > term.length) || (isSep && !isTerm)) {
+                    i += sep.length
+                } else {
+                    content.addRow(row)
+                    row = Content.Row()
+                    i += term.length
+                }
             }
-
-            if ((isSep && isTerm && sep.length > term.length) || (isSep && !isTerm)) {
-                i += sep.length
-            } else if (isTerm) {
-                content.addRow(row)
-                row = Content.Row()
-                i += term.length
-            }
-            i++
         }
+
         if (builder.isNotEmpty())
             row.add(builder.toString())
         if (row.elems.isNotEmpty())
