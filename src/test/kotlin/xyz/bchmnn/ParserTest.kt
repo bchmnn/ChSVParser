@@ -4,7 +4,7 @@ import org.junit.Test
 import xyz.bchmnn.chsvparser.ChSVParser
 import kotlin.test.assertEquals
 
-class HelloTest {
+class ParserTest {
 
     @Test
     fun test() {
