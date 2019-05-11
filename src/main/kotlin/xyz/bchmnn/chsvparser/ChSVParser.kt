@@ -9,6 +9,10 @@ class ChSVParser constructor(
     var term: String = "\n"
 ) {
 
+    /**
+     * Equality of @property sep and @property term is illegal.
+     * Checks and throws Exception.
+     */
     init {
         if (sep == term)
             throw IllegalArgumentException(
@@ -16,6 +20,13 @@ class ChSVParser constructor(
             )
     }
 
+    /**
+     * This function takes a string as parameter and splits it on
+     * occurrences of @property sep and @property term.
+     *
+     * @param text      string of character/string separated values
+     * @return          content instance containing rows with elements
+     */
     fun parse(text:String):Content {
 
         val len = max(sep.length, term.length)
